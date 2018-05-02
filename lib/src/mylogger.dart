@@ -1,6 +1,8 @@
+library mylogger;
+
 import 'package:flutter/material.dart';
 
-class MylogApp extends StatelessWidget {
+class MyLogger extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'MyLogger';

@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
-import 'mylog/app.dart';
+import 'src/mylogger.dart';
 
-void main() => runApp(new MylogApp());
+void main() => runApp(new MyLogger());
