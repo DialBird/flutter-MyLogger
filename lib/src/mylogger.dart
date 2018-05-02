@@ -1,6 +1,10 @@
 library mylogger;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+
+part 'pages/logs_view.dart';
+part 'pages/settings_view.dart';
 
 class MyLogger extends StatelessWidget {
   @override
@@ -35,29 +39,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
+    return new CupertinoTabScaffold(
+      tabBar: new CupertinoTabBar(
+        items: <BottomNavigationBarItem>[
+          new BottomNavigationBarItem(
+            icon: new Icon(Icons.list),
+            title: new Text('Logs'),
+          ),
+          new BottomNavigationBarItem(
+            icon: new Icon(Icons.settings),
+            title: new Text('Settings'),
+          ),
+        ]
       ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      tabBuilder: (BuildContext context, int index) {
+        return new CupertinoTabView(
+          builder: (BuildContext context) {
+            if (index == 0) {
+              return new LogsView();
+            } else {
+              return new SettingsView();
+            }
+          },
+        );
+      },
     );
   }
 }
