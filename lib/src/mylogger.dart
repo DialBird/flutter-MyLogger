@@ -1,7 +1,8 @@
 library mylogger;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 part 'pages/logs_view.dart';
 part 'pages/settings_view.dart';
