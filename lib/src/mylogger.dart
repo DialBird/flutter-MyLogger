@@ -8,6 +8,7 @@ import 'dart:convert';
 
 part 'pages/logs_view.dart';
 part 'pages/settings_view.dart';
+part 'pages/log_detail_view.dart';
 part 'models/my_log.dart';
 part 'utils/date_formatter.dart';
 
@@ -18,7 +19,7 @@ class MyLogger extends StatelessWidget {
     return new MaterialApp(
       title: title,
       theme: new ThemeData(
-        primaryColor: Colors.blue
+        primaryColor: Colors.blue,
       ),
       home: new MyHomePage(),
     );
