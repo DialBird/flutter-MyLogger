@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 part 'pages/logs_view.dart';
 part 'pages/settings_view.dart';
+part 'models/my_log.dart';
 
 class MyLogger extends StatelessWidget {
   @override
