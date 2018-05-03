@@ -13,7 +13,7 @@ class MyLogger extends StatelessWidget {
     return new MaterialApp(
       title: title,
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue
       ),
       home: new MyHomePage(),
     );
