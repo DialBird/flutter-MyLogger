@@ -3,11 +3,11 @@ part of mylogger;
 class LogsView extends StatelessWidget {
   @override
   Widget build(context) {
-    return new CupertinoPageScaffold(
-      navigationBar: new CupertinoNavigationBar(
-        middle: new Text('Logs'),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Logs'),
       ),
-      child: new Center(
+      body: new Center(
         child: new CupertinoButton(
           child: const Text('Next page'),
           onPressed: () {

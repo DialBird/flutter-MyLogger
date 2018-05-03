@@ -15,54 +15,39 @@ class MyLogger extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: title),
+      home: new MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final List<String> pageTitleList = ['Logs', 'Settings'];
+  final List<Widget> pageList = [new LogsView(), new SettingsView()];
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
-    return new CupertinoTabScaffold(
-      tabBar: new CupertinoTabBar(
+    return new Scaffold(
+      body: pageList[index],
+      bottomNavigationBar: new BottomNavigationBar(
+        currentIndex: index,
+        onTap: (index) => setState(() => this.index = index),
         items: <BottomNavigationBarItem>[
           new BottomNavigationBarItem(
             icon: new Icon(Icons.list),
-            title: new Text('Logs'),
+            title: new Text(pageTitleList[0]),
           ),
           new BottomNavigationBarItem(
             icon: new Icon(Icons.settings),
-            title: new Text('Settings'),
+            title: new Text(pageTitleList[1]),
           ),
-        ]
+        ],
       ),
-      tabBuilder: (BuildContext context, int index) {
-        return new CupertinoTabView(
-          builder: (BuildContext context) {
-            if (index == 0) {
-              return new LogsView();
-            } else {
-              return new SettingsView();
-            }
-          },
-        );
-      },
     );
   }
 }
